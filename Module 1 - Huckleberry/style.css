@@ -9,4 +9,48 @@ body {
   padding: 0;
 }
 
-/* Add styles here! */
+.max-width-wrapper {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+strong {
+  color: forestgreen;
+}
+
+/* Header */
+
+.intro-chunk {
+  max-width: 75%
+}
+
+.title {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+/* Main */
+
+main {
+  background-color: darkgray;
+  border-top: 5px solid gray;
+  padding: 50px;
+}
+
+.card {
+  margin: auto;
+  margin-top: 50px;
+  background-color: white;
+  padding: 10px 10px;
+}
+
+.indented-heading {
+  background-color: goldenrod;
+  border-bottom: 5px solid darkgoldenrod;
+  padding: 10px;
+  margin: 5px auto 10px -24px;
+  text-align: center;
+  width: fit-content;
+}
