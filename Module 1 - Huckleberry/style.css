@@ -9,48 +9,66 @@ body {
   padding: 0;
 }
 
-.max-width-wrapper {
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+html {
+  font-size: 1.125rem;
 }
 
-strong {
-  color: forestgreen;
+h1, h2, h3 {
+  margin: 0,
+}
+
+.max-width-wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 /* Header */
 
+.intro-chunk .title {
+  font-size: 2rem;
+  margin-bottom: 32px;
+}
+
 .intro-chunk {
-  max-width: 75%
+  padding: 96px 0;
+  max-width: 500px;
+}
+.intro-chunk p {
+  font-size: 1.25rem;
 }
 
-.title {
-  margin-top: 50px;
-  margin-bottom: 50px;
+.intro-chunk strong {
+  color: hsl(160deg, 100%, 30%);
 }
-
 
 /* Main */
 
 main {
-  background-color: darkgray;
-  border-top: 5px solid gray;
-  padding: 50px;
+  background-color: hsl(0deg, 0%, 60%);
+  border-top: 5px solid hsl(0deg, 0%, 30%);
+  padding: 96px 0;
 }
 
 .card {
-  margin: auto;
-  margin-top: 50px;
-  background-color: white;
-  padding: 10px 10px;
+  background-color: hsl(0deg, 0%, 100%);
+  padding: 24px;
+  margin: -24px;
+}
+
+.card p {
+  line-height: 1.4;
 }
 
 .indented-heading {
-  background-color: goldenrod;
-  border-bottom: 5px solid darkgoldenrod;
-  padding: 10px;
-  margin: 5px auto 10px -24px;
-  text-align: center;
+  background-color: hsl(45deg, 100%, 50%);
+  border-bottom: 5px solid  hsl(45deg, 100%, 40%);
+  padding: 16px 32px;
+  margin-left: -32px;
+  margin-top: -16px; 
   width: fit-content;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
 }
