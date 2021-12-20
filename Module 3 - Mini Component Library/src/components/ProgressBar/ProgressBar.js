@@ -14,11 +14,10 @@ const innerHeights = { small: 8, medium: 12, large: 16}
 const ProgressBar = ({ value, size }) => {
   // Validate value
   if(value < 0) {
-    console.error("value must be between 0 and 100, received", value)
+    console.error("ProgressBar value must be between 0 and 100, received", value)
     value = 0
-  }
-  else if(value > 100) {
-    console.error("value must be between 0 and 100, received", value)
+  } else if(value > 100) {
+    console.error("ProgressBar value must be between 0 and 100, received", value)
     value = 100
   }
 
@@ -55,8 +54,9 @@ const BaseInnerBar = styled.div`
   border-radius: 4px 0px 0px 4px;
 
   width: ${props => props.value}%;
-  height: ${props => innerHeights[props.size]}px;
-  margin: ${props => props.margin}px;
+  top: ${props => props.margin}px;
+  bottom: ${props => props.margin}px;
+  left: ${props => props.margin}px;
 `
 
 export default ProgressBar;
