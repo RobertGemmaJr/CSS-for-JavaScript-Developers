@@ -4,6 +4,15 @@ import styled from 'styled-components';
 import { COLORS } from '../../constants';
 import VisuallyHidden from '../VisuallyHidden';
 
+/** From Tutorial:
+ *  https://github.com/css-for-js/mini-component-library/tree/solution
+ * 
+ *  Add "role="progressbar" aria-valuenow={value} aria-valuemin="0" aria-valuemax="100"" to <OuterBar>
+ *  Use overflow: hidden to match the inner and outer border-radius
+ *    To work with large: put border-radius and overflow in a secondary wrapper element
+ *  You can use a different outer border-radius to make sure large's padding is the same through the curved edge
+ */
+
 const ProgressBar = ({ value, size }) => {
   let OuterBar;
   if(size === "small") OuterBar = SmallProgressBar;
@@ -11,13 +20,13 @@ const ProgressBar = ({ value, size }) => {
   else if(size === "large") OuterBar = LargeProgressBar;
   else throw new Error(`Invalid ProgressBar size: ${size}`)
 
-  if(value < 0 || value > 100) 
+  if(!value || value < 0 || value > 100) 
     throw new Error(`Invalid ProgressBar value: ${value}, value must be between 0 and 100`);
 
   return (
     <OuterBar>
       <InnerBar value={value} />
-      <VisuallyHidden>{"Progress bar is " + value + "% complete"}</VisuallyHidden>
+      <VisuallyHidden>{value}</VisuallyHidden>
     </OuterBar>
   )
 };
