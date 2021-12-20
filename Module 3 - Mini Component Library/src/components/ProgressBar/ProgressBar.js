@@ -1,26 +1,18 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import styled from 'styled-components';
 
 import { COLORS } from '../../constants';
 import VisuallyHidden from '../VisuallyHidden';
 
-// TODO: Round corners as approaching 100%
 const ProgressBar = ({ value, size }) => {
-  // Validate size
   let OuterBar;
   if(size === "small") OuterBar = SmallProgressBar;
   else if(size === "medium") OuterBar = MediumProgressBar;
   else if(size === "large") OuterBar = LargeProgressBar;
   else throw new Error(`Invalid ProgressBar size: ${size}`)
 
-  // Validate value
-  let rightRadius;
-  if(value >= 0 && value <= 99) rightRadius = 0;
-  else if(value > 99 && value <= 100) rightRadius = 4;
-  else throw new Error(`Invalid ProgressBar value: ${value}, value must be between 0 and 100`);
-
-  console.log("CALC", Math.max(0,10* (value-99)/4))
+  if(value < 0 || value > 100) 
+    throw new Error(`Invalid ProgressBar value: ${value}, value must be between 0 and 100`);
 
   return (
     <OuterBar>
@@ -52,14 +44,14 @@ const LargeProgressBar = styled(BaseProgressBar)`
 `
 
 const InnerBar = styled.div`
-  box-sizing: border-box;
   background: #4747EB;
   border-radius: 4px 0px 0px 4px;
 
+  box-sizing: border-box;
   height: 100%;
   width: ${props => props.value}%;
-  border-top-right-radius: ${props => Math.max(0, 4*(props.value-99))}px;
-  border-bottom-right-radius: ${props => Math.max(0, 4*(props.value-99))}px;
+  border-top-right-radius: ${props => Math.max(0, 2*(props.value-98))}px;
+  border-bottom-right-radius: ${props => Math.max(0, 2*(props.value-98))}px;
 `
 
 export default ProgressBar;
