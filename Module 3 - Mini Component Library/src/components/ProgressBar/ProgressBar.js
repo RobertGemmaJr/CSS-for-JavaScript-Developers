@@ -7,7 +7,8 @@ import VisuallyHidden from '../VisuallyHidden';
 /** From Tutorial:
  *  https://github.com/css-for-js/mini-component-library/tree/solution
  * 
- *  Add "role="progressbar" aria-valuenow={value} aria-valuemin="0" aria-valuemax="100"" to <OuterBar>
+ * BaseProgressBar should have a set width - let user handle that 
+ * Add "role="progressbar" aria-valuenow={value} aria-valuemin="0" aria-valuemax="100"" to <OuterBar>
  *  Use overflow: hidden to match the inner and outer border-radius
  *    To work with large: put border-radius and overflow in a secondary wrapper element
  *  You can use a different outer border-radius to make sure large's padding is the same through the curved edge
