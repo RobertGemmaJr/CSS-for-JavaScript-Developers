@@ -10,7 +10,8 @@ import VisuallyHidden from '../VisuallyHidden';
 /** From Tutorial:
  *  https://github.com/css-for-js/mini-component-library/blob/solution/src/components/IconInput/IconInput.js
  * 
- *  
+ *  Josh changes placeholder to ...props and passes that into his Input
+ *  The Wrapper was a label not a form - this means clicking the icon focuses the whole thing. Also means he doesn't need focus-within
  */
 
 const IconInput = ({
@@ -30,7 +31,7 @@ const IconInput = ({
   } else throw new Error(`Invalid IconInput size: ${size}`)
 
   return (
-    <Wrapper >
+    <Wrapper>
       <VisuallyHidden>{label}</VisuallyHidden>
       <StyledIcon id={icon} size={iconSize} />
       <Input
@@ -47,25 +48,24 @@ const IconInput = ({
 
 const Wrapper = styled.form`
   position: relative;
-  display: black;
-  color: ${COLORS.gray700};
-  border-bottom: 2px solid ${COLORS.black};
   width: max-content;
+  color: ${COLORS.gray700};
 
   &:hover {
     color: ${COLORS.black};
   }
 
   &:focus-within {
-    outline: 2px solid ${props => props.focusColor};
+    outline: 2px solid;
+    outline-offset: 2px;
   }
 `
 
 const BaseInput = styled.input`
   color: inherit;
-  background-color: inherit;
   outline: none;
   border: none;
+  border-bottom: ${props => props.size === "small" ? 1 : 2}px solid ${COLORS.black};
   width: ${props => props.width}px;
   font-size: ${props => props.size === "small" ? 0.875 : 1}rem;
   font-weight: 700; 
