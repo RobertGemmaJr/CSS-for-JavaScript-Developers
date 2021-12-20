@@ -5,7 +5,7 @@ import { COLORS } from '../../constants';
 import VisuallyHidden from '../VisuallyHidden';
 
 /** From Tutorial:
- *  https://github.com/css-for-js/mini-component-library/tree/solution
+ *  https://github.com/css-for-js/mini-component-library/blob/solution/src/components/ProgressBar/ProgressBar.js
  * 
  * BaseProgressBar should have a set width - let user handle that 
  * Add "role="progressbar" aria-valuenow={value} aria-valuemin="0" aria-valuemax="100"" to <OuterBar>
