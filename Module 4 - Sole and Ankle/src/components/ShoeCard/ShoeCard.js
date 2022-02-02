@@ -40,10 +40,11 @@ const ShoeCard = ({
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
-          <Price>{formatPrice(price)}</Price>
+          <Price variant={variant}>{formatPrice(price)} </Price>
         </Row>
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
+          {variant === "on-sale" && <SalePrice>{formatPrice(price)}</SalePrice>}
         </Row>
       </Wrapper>
     </Link>
@@ -55,16 +56,27 @@ const Link = styled.a`
   color: inherit;
 `;
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
 
 const ImageWrapper = styled.div`
   position: relative;
+  min-width: 275px;
+  max-width: 340px;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+  display: block;
+  width: 100%;
+`;
 
 const Row = styled.div`
   font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Name = styled.h3`
@@ -72,7 +84,11 @@ const Name = styled.h3`
   color: ${COLORS.gray[900]};
 `;
 
-const Price = styled.span``;
+const Price = styled.span`
+  display: flex;
+  flex-direction: column;
+  text-decoration: ${props => props.variant === "on-sale" && "line-through"};
+`;
 
 const ColorInfo = styled.p`
   color: ${COLORS.gray[700]};
