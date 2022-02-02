@@ -32,7 +32,7 @@ const MainHeader = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   /* height: 72px; */
 `;
 

@@ -29,6 +29,7 @@ const Wrapper = styled.div`
   display: flex;
   padding: 8px 32px;
   align-items: center;
+  gap: 28px;
 `;
 
 const MarketingMessage = styled.span`
@@ -44,8 +45,6 @@ const HelpLink = styled.a`
   &:not(:focus-visible) {
     outline: none;
   }
-
-  margin: 0px 28px;
 `;
 
 export default SuperHeader;
