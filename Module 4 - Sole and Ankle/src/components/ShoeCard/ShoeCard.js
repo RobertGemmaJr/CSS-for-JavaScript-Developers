@@ -30,23 +30,29 @@ const ShoeCard = ({
     : isNewShoe(releaseDate)
       ? 'new-release'
       : 'default'
-
-  console.log(variant)
+  
+  const onSale = variant === "on-sale"
 
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
+          {
+            variant !== "default" && 
+              <Flag onSale={onSale}>
+                {onSale ? "Sale" : "Just Released!"}
+              </Flag>
+          }
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
-          <Price variant={variant}>{formatPrice(price)}</Price>
+          <Price onSale={onSale}>{formatPrice(price)}</Price>
         </Row>
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
-          {variant === "on-sale" && <SalePrice>{formatPrice(price)}</SalePrice>}
+          {onSale && <SalePrice>{formatPrice(salePrice)}</SalePrice>}
         </Row>
       </Wrapper>
     </Link>
@@ -88,7 +94,8 @@ const Name = styled.h3`
 const Price = styled.span`
   display: flex;
   flex-direction: column;
-  text-decoration: ${props => props.variant === "on-sale" && "line-through"};
+  color: ${p => p.onSale && COLORS.gray[700]};
+  text-decoration: ${p => p.onSale && "line-through"};
 `;
 
 const ColorInfo = styled.p`
@@ -99,5 +106,15 @@ const SalePrice = styled.span`
   font-weight: ${WEIGHTS.medium};
   color: ${COLORS.primary};
 `;
+
+const Flag = styled.div`
+  position: absolute;
+  top: 12px;
+  right: -4px;
+  border-radius: 2px;
+  padding: 8px;
+  color: ${COLORS.white};
+  background-color: ${p => p.onSale ? COLORS.primary : COLORS.secondary};
+`
 
 export default ShoeCard;
