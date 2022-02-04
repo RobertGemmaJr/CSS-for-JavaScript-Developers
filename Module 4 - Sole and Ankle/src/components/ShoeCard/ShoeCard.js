@@ -38,6 +38,7 @@ const ShoeCard = ({
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
+          {/* Josh composed a SaleFlag and ReleasedFlag to avoid this markup */}
           {
             variant !== "default" && 
               <Flag onSale={onSale}>
@@ -113,6 +114,7 @@ const Flag = styled.div`
   right: -4px;
   border-radius: 2px;
   padding: 8px;
+  font-weight: ${WEIGHTS.bold};
   color: ${COLORS.white};
   background-color: ${p => p.onSale ? COLORS.primary : COLORS.secondary};
 `
