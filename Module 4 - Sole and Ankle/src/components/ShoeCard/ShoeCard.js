@@ -31,6 +31,8 @@ const ShoeCard = ({
       ? 'new-release'
       : 'default'
 
+  console.log(variant)
+
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
@@ -40,7 +42,7 @@ const ShoeCard = ({
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
-          <Price variant={variant}>{formatPrice(price)} </Price>
+          <Price variant={variant}>{formatPrice(price)}</Price>
         </Row>
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
@@ -54,18 +56,17 @@ const ShoeCard = ({
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
+  flex: 1;
+  min-width: 275px;
 `;
 
 const Wrapper = styled.article`
-  flex: 1;
   display: flex;
   flex-direction: column;
 `;
 
 const ImageWrapper = styled.div`
   position: relative;
-  min-width: 275px;
-  max-width: 340px;
 `;
 
 const Image = styled.img`
